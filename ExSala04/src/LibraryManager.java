@@ -46,7 +46,5 @@ public class LibraryManager {
 			return null;
 				
 		}
-		
-
 			
-		}
+}
