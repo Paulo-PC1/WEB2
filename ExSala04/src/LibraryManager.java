@@ -21,6 +21,21 @@ public class LibraryManager {
 			return false;
 		}
 		
+		public boolean takeBook(String title) {
+			Book book = search(title);
+			if(book != null) {
+				if(book.getTitle().equals(title))
+					bookList.remove(book);
+					return true;
+				}
+			return false;
+			}	
+		
+		public boolean giveBook(Book book) {
+			bookList.add(book);
+			return true;
+		}
+		
 		public Book search(String title) {
 			for(Book book: bookList) {
 				if(book.getTitle().equals(title)){
@@ -31,14 +46,6 @@ public class LibraryManager {
 				
 		}
 		
-		public boolean takeBook(String title) {
-			Book book = search(title);
-			if(book != null) {
-				if(book.getTitle().equals(title))
-					bookList.remove(book);
-					return true;
-				}
-			return false;
-			}	
+
 			
 		}

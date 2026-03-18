@@ -23,21 +23,53 @@ public class Main {
 	}
 	
 	private static void register() {
-		System.out.println("Enter the code of the Book");
+		System.out.println("Enter the code of the book");
 		String code = scanner.nextLine();
-		System.out.println("Entre the name of the Book: ");
-		String name = scanner.nextLine();
-		System.out.println("Enter the Author of the Book: ");
+		System.out.println("Entre the title of the book: ");
+		String title = scanner.nextLine();
+		System.out.println("Enter the Author of the book: ");
 		String author = scanner.nextLine();
-		Book book = new Book(code, name, author);
+		Book book = new Book(code, title, author);
 		if(manager.saveBook(book)){
-			System.out.print("Task Registred!!");
+			System.out.print("book Registred!!");
 		}
 		else 
 		{
-			System.out.println("Error on register the Task!!");
+			System.out.println("Error on register the book!!");
 		}
 	}
+	
+	private static void take() {
+		System.out.println("Enter the title of the book");
+		String title = scanner.nextLine();
+		System.out.println("Book data:");
+		System.out.println(manager.getLibraryList());
+		if(manager.takeBook(title)) {
+			System.out.println("Book taken!");
+		}else 
+		{
+			System.out.println("Error when picking up book. Please correct the data of the book!!");
+		}
+		
+	}
+
+	private static void give() {
+		System.out.println("Enter the code of the book");
+		String code = scanner.nextLine();
+		System.out.println("Entre the title of the book: ");
+		String title = scanner.nextLine();
+		System.out.println("Enter the Author of the book: ");
+		String author = scanner.nextLine();
+		Book book = new Book(code, title, author);
+		if(manager.saveBook(book)){
+			System.out.print("Book gived back!!");
+		}
+		else 
+		{
+			System.out.println("Error on gived back book!!");
+		}
+	}
+
 	
 	private static void search() {
 		System.out.println("Enter the Book Title: ");
@@ -51,6 +83,13 @@ public class Main {
 			System.out.println("Book not found. Try Again.");
 		}
 	}
+	
+	private static void show() {
+		System.out.println("Tasks registred:");
+		System.out.println(manager.getLibraryList());
+		
+	}
+
 		
 	public static void main(String[] args) {
 		int option;
@@ -65,11 +104,11 @@ public class Main {
 				break;
 			}
 			case 2: {
-				//take();
+				take();
 				break;
 			}
 			case 3: {
-				//give();
+				give();
 				break;
 			}
 			case 4: {
@@ -77,11 +116,12 @@ public class Main {
 				break;
 			}
 			case 5:{
-				//show();
+				show();
 				break;
 			}
 			case 6: {
 				System.out.println("Shuting down the program...");
+				break;
 			}
 			default:
 				System.out.println("Choose an valid option. Try Again!!");
@@ -89,7 +129,7 @@ public class Main {
 			System.out.println("Press <ENTER> to continue");
 			scanner.nextLine();
 			
-		} while (option != 4);
+		} while (option != 6);
 	}
 
 }
