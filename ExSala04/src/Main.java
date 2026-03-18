@@ -31,7 +31,7 @@ public class Main {
 		String author = scanner.nextLine();
 		Book book = new Book(code, title, author);
 		if(manager.saveBook(book)){
-			System.out.print("book Registred!!");
+			System.out.print("book registred!!");
 		}
 		else 
 		{
