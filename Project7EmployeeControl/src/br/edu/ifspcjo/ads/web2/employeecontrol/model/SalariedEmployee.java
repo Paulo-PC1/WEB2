@@ -20,7 +20,7 @@ public class SalariedEmployee extends Employee {
 
 	@Override
 	public String toString() {
-		return "Salaried Employee [Salary= R$" + salary + ", Name= " + name + ", CPF= " + cpf + "]";
+		return "Salaried Employee [Salary= R$ " + salary + ", Name= " + name + ", CPF= " + cpf + "]";
 	}
 	@Override
 	public double calculateIncome() {
