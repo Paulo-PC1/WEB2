@@ -2,6 +2,8 @@ package br.edu.ifspcjo.ads.web2.som.view;
 
 import java.util.Scanner;
 
+import br.edu.ifspcjo.ads.web2.som.model.Instrumento;
+
 public class Main {
 
 	public static void main(String[] args) {
