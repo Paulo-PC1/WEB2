@@ -1,7 +1,9 @@
 package br.edu.ifspcjo.ads.web2.som.model;
 
-public class Bateria {
+public class Bateria implements Instrumento{
 
-	public void tocar();
-		return"Bateria";
+	@Override
+	public String tocar() {
+		return "Tocando Som de Bateria";
+	}
 }

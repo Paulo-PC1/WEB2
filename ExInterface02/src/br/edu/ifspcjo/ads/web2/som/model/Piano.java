@@ -1,7 +1,9 @@
 package br.edu.ifspcjo.ads.web2.som.model;
 
-public class Piano {
+public class Piano implements Instrumento {
 
-	public void tocar();
-		return "Piano";
+	@Override
+	public String tocar() {
+		return "Tocando Som de Piano";
+	}
 }
