@@ -41,6 +41,7 @@ public class UserResource {
 		if(user.isPresent()) {
 			return ResponseEntity.ok(user.get());
 		}
+		
 		return ResponseEntity.notFound().build();
 	}
 }
