@@ -2,13 +2,23 @@ package br.edu.ifspcjo.ads.web2.tasks.domain.model;
 
 import java.util.Objects;
 
-public class User {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name = "user")
+public class User {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 	private String password;
 	private String phoneNumber;
-	private Boolean active;
+	private Boolean active;	
 
 	public Long getId() {
 		return id;
