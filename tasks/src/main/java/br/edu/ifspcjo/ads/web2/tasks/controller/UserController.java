@@ -2,7 +2,6 @@ package br.edu.ifspcjo.ads.web2.tasks.controller;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
