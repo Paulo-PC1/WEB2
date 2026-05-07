@@ -7,17 +7,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-<<<<<<< HEAD
-
-@Entity
-@Table(name = "tasks")
-=======
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "category")
->>>>>>> branch 'main' of https://github.com/Paulo-PC1/WEB2.git
 public class Category {
 
 	@Id
