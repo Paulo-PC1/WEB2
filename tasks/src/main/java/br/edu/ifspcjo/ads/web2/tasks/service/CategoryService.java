@@ -3,12 +3,12 @@ package br.edu.ifspcjo.ads.web2.tasks.service;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.stereotype.Service;
 
 import br.edu.ifspcjo.ads.web2.tasks.domain.model.Category;
 import br.edu.ifspcjo.ads.web2.tasks.repository.CategoryRepository;
-import jakarta.validation.constraints.Size;
 
-@Size
+@Service
 public class CategoryService {
 	
 	@Autowired

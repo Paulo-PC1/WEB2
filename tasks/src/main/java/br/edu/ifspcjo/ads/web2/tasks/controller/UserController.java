@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.ifspcjo.ads.web2.tasks.domain.model.User;
 import br.edu.ifspcjo.ads.web2.tasks.repository.UserRepository;
+import br.edu.ifspcjo.ads.web2.tasks.service.UserService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 
@@ -25,6 +27,9 @@ public class UserController {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private UserService userService;
 	
 	@GetMapping
 	public List<User> listar(){
@@ -45,5 +50,15 @@ public class UserController {
 		}
 		return ResponseEntity.notFound().build();
 	}
-		
+	
+	@PutMapping("/{id}")
+	public ResponseEntity<User> update(@PathVariable Long id, @Valid @RequestBody User user){
+		User userSaved = userService.update(id, user);
+		return ResponseEntity.ok(userSaved);
+	}
+	@PutMapping("/{id}/active")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void atualizarPropriedadeAtivo(@PathVariable Long id, @RequestBody Boolean active) {
+		userService.updateActiveProperty(id, active);
+	}
 }

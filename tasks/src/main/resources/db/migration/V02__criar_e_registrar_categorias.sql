@@ -15,4 +15,3 @@ INSERT INTO category(id, name)
 
 INSERT INTO category(id, name)
 	values (4, 'Lazer');
->>>>>>> branch 'main' of https://github.com/Paulo-PC1/WEB2.git
