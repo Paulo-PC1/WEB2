@@ -1,4 +1,3 @@
-
 package br.edu.ifspcjo.ads.web2.tasks.controller;
 
 import java.util.List;
@@ -20,10 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 import br.edu.ifspcjo.ads.web2.tasks.domain.model.Tasks;
 import br.edu.ifspcjo.ads.web2.tasks.repository.TasksRepository;
 import br.edu.ifspcjo.ads.web2.tasks.service.TasksService;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/task")
+@RequestMapping("/tarefas")
 public class TaskController {
 	
 	@Autowired
@@ -33,7 +33,7 @@ public class TaskController {
 	private TasksService tasksService;
 	
 	@GetMapping
-	public List<Tasks> list() {
+	public List<Tasks> listar() {
 		return tasksRepository.findAll();
 	}
 	
@@ -49,8 +49,8 @@ public class TaskController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Tasks create(@Valid @RequestBody Tasks tasks) {
-		return tasksService.save(tasks);
+	public Tasks create(@Valid @RequestBody Tasks tasks, HttpServletResponse response) {
+		return tasksRepository.save(tasks);
 	}
 	
 	@DeleteMapping("/{id}")

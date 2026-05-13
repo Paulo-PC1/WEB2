@@ -32,8 +32,8 @@ public class Tasks {
 	private LocalDate date;
 	@NotNull
 	private String observation;
-	@NotNull
 	@Enumerated(EnumType.STRING)
+	@NotNull
 	private Status status;
 	@ManyToOne
 	@JoinColumn(name = "category_id")
