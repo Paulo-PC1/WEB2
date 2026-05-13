@@ -1,3 +1,4 @@
+
 package br.edu.ifspcjo.ads.web2.tasks.controller;
 
 import java.util.List;
@@ -6,7 +7,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.config.Task;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.edu.ifspcjo.ads.web2.tasks.domain.model.Tasks;
 import br.edu.ifspcjo.ads.web2.tasks.repository.TasksRepository;
 import br.edu.ifspcjo.ads.web2.tasks.service.TasksService;
 import jakarta.validation.Valid;
@@ -32,24 +33,24 @@ public class TaskController {
 	private TasksService tasksService;
 	
 	@GetMapping
-	public List<Task> list() {
+	public List<Tasks> list() {
 		return tasksRepository.findAll();
 	}
 	
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Task> findById(@PathVariable Long id){
-		Optional<Task> task = tasksRepository.findById(id);
-		if (task.isPresent()) {
-			return ResponseEntity.ok(task.get());
+	public ResponseEntity<Tasks> findById(@PathVariable Long id){
+		Optional<Tasks> tasks = tasksRepository.findById(id);
+		if (tasks.isPresent()) {
+			return ResponseEntity.ok(tasks.get());
 		}
 		return ResponseEntity.notFound().build();
 	}
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Task create(@Valid @RequestBody Task task) {
-		return tasksService.save(task);
+	public Tasks create(@Valid @RequestBody Tasks tasks) {
+		return tasksService.save(tasks);
 	}
 	
 	@DeleteMapping("/{id}")
@@ -59,8 +60,8 @@ public class TaskController {
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Task> update(@PathVariable Long id, @Valid @RequestBody Task task){
-		Task taskSaved = tasksService.update(id, task);
-		return ResponseEntity.ok(taskSaved);
+	public ResponseEntity<Tasks> update(@PathVariable Long id, @Valid @RequestBody Tasks tasks){
+		Tasks tasksSaved = tasksService.update(id, tasks);
+		return ResponseEntity.ok(tasksSaved);
 	}
 }

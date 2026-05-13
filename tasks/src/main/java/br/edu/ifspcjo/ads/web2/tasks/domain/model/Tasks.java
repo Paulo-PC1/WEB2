@@ -19,7 +19,7 @@ import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "tasks")
-public class Taks {
+public class Tasks {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -113,7 +113,7 @@ public class Taks {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Taks other = (Taks) obj;
+		Tasks other = (Tasks) obj;
 		return Objects.equals(id, other.id);
 	}
 

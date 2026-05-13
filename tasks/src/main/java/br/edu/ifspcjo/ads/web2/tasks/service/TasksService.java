@@ -1,5 +1,23 @@
 package br.edu.ifspcjo.ads.web2.tasks.service;
 
-public class TasksService {
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import br.edu.ifspcjo.ads.web2.tasks.domain.model.Tasks;
+import br.edu.ifspcjo.ads.web2.tasks.repository.TasksRepository;
+
+@Service
+public class TasksService {
+	
+	@Autowired
+	private TasksRepository tasksRepository;
+	
+	public Tasks update(Long id, Tasks task) {
+		Tasks tasksSaved = findById(id);
+		BeanUtils.copyProperties(task, tasksSaved, "id");
+		return tasksRepository.save(tasksSaved);
+	}
+	
+	
 }
