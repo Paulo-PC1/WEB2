@@ -2,6 +2,7 @@ package br.edu.ifspcjo.ads.web2.tasks.domain.model;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,6 +27,7 @@ public class User {
 	private String email;
 	@NotNull
 	private String password;
+	@Column(name = "phone_number")
 	private String phoneNumber;
 	private Boolean active;	
 
